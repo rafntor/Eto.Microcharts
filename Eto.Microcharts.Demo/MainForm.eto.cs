@@ -22,10 +22,6 @@ namespace Eto.Microcharts.Demo
 				}
 			};
 
-			// create a few commands that can be used for the menu and toolbar
-			var clickMe = new Command { MenuText = "Click Me!", ToolBarText = "Click Me!" };
-			clickMe.Executed += (sender, e) => SwitchContent();
-
 			var quitCommand = new Command { MenuText = "Quit", Shortcut = Application.Instance.CommonModifier | Keys.Q };
 			quitCommand.Executed += (sender, e) => Application.Instance.Quit();
 
@@ -50,9 +46,6 @@ namespace Eto.Microcharts.Demo
 				QuitItem = quitCommand,
 				AboutItem = aboutCommand
 			};
-
-			// create toolbar			
-			ToolBar = new ToolBar { Items = { clickMe } };
 		}
 	}
 }
