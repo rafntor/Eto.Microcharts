@@ -1,18 +1,45 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
+				 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+				 <PackageLicenseFile>LICENSE</PackageLicenseFile>
+				 <Description>Provides an Eto.Forms view control for Microcharts.</Description>
+				 <PackageProjectUrl>https://github.com/rafntor/Eto.Microcharts</PackageProjectUrl>
+				 <PackageReadmeFile>README.md</PackageReadmeFile>
+				 <RepositoryUrl>https://github.com/rafntor/Eto.Microcharts</RepositoryUrl>
+				 <RepositoryType>git</RepositoryType>
+				 <PackageTags>Eto;Eto.Forms;Microcharts</PackageTags>
+				 <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+				 <Copyright>Copyright © 2022 Tore Fuglestad</Copyright>
+				 <EnableNETAnalyzers>True</EnableNETAnalyzers>
+				 <Authors>Tore Fuglestad</Authors>
+	 </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Eto.SkiaDraw" Version="1.0.0" />
+      <PackageReference Include="Eto.SkiaDraw" Version="0.1.0-ci.16" />
       <PackageReference Include="Microcharts" Version="0.9.5.9" />
-    </ItemGroup>
+		 <PackageReference Include="GitVersion.MsBuild" Version="5.8.1">
+			 <PrivateAssets>all</PrivateAssets>
+			 <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		 </PackageReference>
+		 <PackageReference Include="SonarAnalyzer.CSharp" Version="8.33.0.40503">
+			 <PrivateAssets>all</PrivateAssets>
+			 <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		 </PackageReference>
+	 </ItemGroup>
 
-</Project>
+	 <ItemGroup>
+		 <None Include="..\LICENSE">
+			 <Pack>True</Pack>
+			 <PackagePath></PackagePath>
+		 </None>
+		 <None Include="..\README.md">
+			 <Pack>True</Pack>
+			 <PackagePath>\</PackagePath>
+		 </None>
+	 </ItemGroup>
+
+ </Project>
