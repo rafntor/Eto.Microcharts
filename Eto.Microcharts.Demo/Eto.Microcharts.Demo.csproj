@@ -1,4 +1,4 @@
-<Project Sdk="Eto.Forms/2.5.11">
+<Project Sdk="Eto.Forms/2.6.0">
 
   <!--
     Set the BuildPlatform property to the Eto platform you wish to build for.
@@ -7,11 +7,22 @@
 -->
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
+	  <!-- include native libSkiaSharp (++?) when publishing selfcontained -->
+	  <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Eto.Microcharts\Eto.Microcharts.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+		<!-- Explicitly reference Linux native dlls to get them included -->
+		<PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.80.3" />
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.33.0.40503">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
 </Project>

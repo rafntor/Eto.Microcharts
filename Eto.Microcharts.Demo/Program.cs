@@ -4,7 +4,7 @@ using System;
 
 namespace Eto.Microcharts.Demo
 {
-	class Program
+	static class Program
 	{
 		[STAThread]
 		static void Main(string[] args)
