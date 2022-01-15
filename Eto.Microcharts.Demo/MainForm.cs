@@ -1,30 +1,19 @@
-using Eto.Drawing;
-using Eto.Forms;
-using System;
 
 namespace Eto.Microcharts.Demo
 {
+	using Eto.Forms;
+	using Eto.Drawing;
+	using Microcharts;
 	public partial class MainForm : Form
 	{
+		global::Microcharts.Chart[] charts = new SampleCharts().Charts;
 		public MainForm()
 		{
 			InitializeComponent();
 
-			var charts = new SampleCharts().Charts;
-
-			var layout2 = new DynamicLayout
-			{
-				Spacing = Size.Empty + 2,
-				Rows = {
-					new DynamicRow(view(charts[0]), view(charts[1]), view(charts[2])),
-					new DynamicRow(view(charts[3]), view(charts[4]), view(charts[5]))
-				}
-			};
-			layout2.SizeChanged += (o, e) => {
-				var chart_size = layout2.Size / new Size(3, 2);
-				foreach (var c in layout2.Controls)
-					c.Size = chart_size;
-			};
+			var layout1 = new TableLayout() { Spacing = Size.Empty + 4 };
+			layout1.Rows.Add(new TableRow(cell(0), cell(1), cell(2)) { ScaleHeight = true });
+			layout1.Rows.Add(new TableRow(cell(3), cell(4), cell(5)) { ScaleHeight = true });
 
 			var entries = new global::Microcharts.ChartEntry[]
 				{
@@ -34,14 +23,16 @@ namespace Eto.Microcharts.Demo
 				};
 			this.Content = new Eto.Microcharts.ChartView() { Chart = new global::Microcharts.RadarChart { Entries = entries, AnimationProgress = 100 } };
 
-			Content = layout2;
+			Content = layout1;
 		}
 
-		private Control view(global::Microcharts.Chart chart)
+		private TableCell cell (int idx)
 		{
-			chart.AnimationProgress = 100;
+			var view = new ChartView { Chart = charts[idx] };
 
-			return new ChartView { Chart = chart  };
+			view.Chart.AnimationProgress = 100;
+
+			return new TableCell(view, true);
 		}
 	}
 }
