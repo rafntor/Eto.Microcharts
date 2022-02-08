@@ -21,12 +21,12 @@ namespace Eto.Microcharts
 				this.Invalidate();
 			}
 		}
-		protected override void OnPaint(SKCanvas canvas)
+		protected override void OnPaint(SKPaintEventArgs e)
 		{
 			if (_chart != null)
-				_chart.Draw(canvas, Width, Height);
+				_chart.Draw(e.Surface.Canvas, Width, Height);
 			else
-				canvas.Clear();
+				e.Surface.Canvas.Clear();
 		}
 	}
 }

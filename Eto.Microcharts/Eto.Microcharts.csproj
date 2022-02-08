@@ -19,7 +19,7 @@
 	 </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Eto.SkiaDraw" Version="0.1.0-ci.18" />
+      <PackageReference Include="Eto.SkiaDraw" Version="0.2.0" />
       <PackageReference Include="Microcharts" Version="0.9.5.9" />
 		 <PackageReference Include="GitVersion.MsBuild" Version="5.8.1">
 			 <PrivateAssets>all</PrivateAssets>
