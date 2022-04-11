@@ -40,13 +40,13 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     - name: Upload Eto.Microcharts.Mac artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Eto.Microcharts.Demo.Mac
         path: Eto.Microcharts.Demo.Mac.tar
 
     - name: Upload Eto.Microcharts.Gtk artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Eto.Microcharts.Demo.Gtk
         path: Eto.Microcharts.Demo.Gtk.tar
@@ -69,13 +69,13 @@ jobs:
         dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained Eto.Microcharts.Demo
     
     - name: Upload TestApp.Wpf artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Eto.Microcharts.Demo.Wpf
         path: Eto.Microcharts.Demo/bin/Wpf/Debug/net6.0-windows/win-x64/publish/Eto.Microcharts.Demo.exe
 
     - name: Upload nuget artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: nuget
         path: Eto.Microcharts/bin/Release/*.nupkg
